@@ -21,7 +21,9 @@ const App = () => {
   const getWeather = async (city) => {
     if (!validateCity(city)) {
       return alert("Enter A Valid City Name");
-    } else {
+    }
+    setIsLoading(true);
+    {
       await fetch(url)
         .then((response) => {
           if (!response.ok) {
@@ -34,18 +36,13 @@ const App = () => {
           setData(data);
           setValue("");
           setIsClick(true);
-          setIsLoading(true);
+          setIsLoading(false);
         });
     }
   };
 
   useEffect(() => {
-    const timeOut = setTimeout(() => {
-      getWeather();
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timeOut);
+    getWeather();
   }, []);
 
   return (
@@ -98,7 +95,13 @@ const App = () => {
       {isLoading && <div className="loader"></div>}
 
       {/* output container */}
-      {isClick ? <Weather weather={data} /> : <small>Enter a Valid </small>}
+      {isClick ? (
+        <Weather weather={data} />
+      ) : (
+        <div className="error">
+          <small>Enter a Valid </small>
+        </div>
+      )}
       <SocialMedia />
     </>
   );

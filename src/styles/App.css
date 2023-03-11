@@ -171,12 +171,12 @@ button:focus span {
 .loader {
   width: 30px;
   height: 30px;
-  margin: 0 auto;
+  margin: 1.5rem auto;
   border: 5px solid #fff;
   border-bottom-color: #03256c;
   border-radius: 50%;
   box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+  animation: rotation 1.5s linear infinite;
 }
 
 @keyframes rotation {
@@ -260,6 +260,11 @@ button:focus span {
   letter-spacing: 2px;
   font-style: oblique;
   text-shadow: 2px 2px black;
+}
+
+.error {
+  visibility: hidden;
+  height: 60vh;
 }
 
 /* *********** */
