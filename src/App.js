@@ -13,6 +13,7 @@ const App = () => {
 
   const url = `http://api.weatherapi.com/v1/current.json?key=74cfee985da04864bd390458230802&q=${value}`;
 
+  // validating user input
   function validateCity(city) {
     const regex = /^[a-zA-Z\s]*$/;
     return city.trim() !== "" && regex.test(city);
@@ -63,7 +64,6 @@ const App = () => {
           placeholder="Enter a city name..."
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          // onKeyUp={(e) => getWeather()}
           autoComplete="off"
         />
         <div>
@@ -92,6 +92,7 @@ const App = () => {
         </button>
       </div>
 
+      {/* calling loading animation */}
       {isLoading && <div className="loader"></div>}
 
       {/* output container */}
@@ -99,7 +100,7 @@ const App = () => {
         <Weather weather={data} />
       ) : (
         <div className="error">
-          <small>Enter a Valid </small>
+          <small>Enter a Valid City Name</small>
         </div>
       )}
       <SocialMedia />
