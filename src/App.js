@@ -24,26 +24,25 @@ const App = () => {
       return alert("Enter A Valid City Name");
     }
     setIsLoading(true);
-    {
-      await fetch(url)
-        .then((response) => {
-          if (!response.ok) {
-            alert("No weather found !!!");
-            throw new Error("No weather found !!!");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setData(data);
-          setValue("");
-          setIsClick(true);
-          setIsLoading(false);
-        });
-    }
+
+    await fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          alert("No weather found !!!");
+          throw new Error("No weather found !!!");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+        setValue("");
+        setIsClick(true);
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
-    getWeather();
+    getWeather(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
