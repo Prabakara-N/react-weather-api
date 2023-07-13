@@ -14,11 +14,12 @@ const App = () => {
   const url = `http://api.weatherapi.com/v1/current.json?key=74cfee985da04864bd390458230802&q=${value}`;
 
   // validating user input
-  function validateCity(city) {
+  const validateCity = (city) => {
     const regex = /^[a-zA-Z\s]*$/;
     return city.trim() !== "" && regex.test(city);
-  }
+  };
 
+  // fetching url
   const getWeather = async (city) => {
     if (!validateCity(city)) {
       return alert("Enter A Valid City Name");
