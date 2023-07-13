@@ -51,7 +51,7 @@ const App = () => {
       {/* input container */}
       <div className="input-container">
         <h2 className="title">
-          Weather <span>APP </span>
+          Weather <span>API </span>
           <FaCloudSunRain className="sun-i" />
         </h2>
       </div>
